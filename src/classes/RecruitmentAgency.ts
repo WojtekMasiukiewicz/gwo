@@ -1,6 +1,5 @@
 import { Programmer } from "../interfaces/Programmer";
 
-
 export class RecruitmentAgency {
 
     private programmerList: Array<Programmer> = []
@@ -44,5 +43,9 @@ export class RecruitmentAgency {
         })
     }
 
-
+    getFilteredProgrammers(filters: Array<any>): Programmer[] {
+        return this.programmerList.filter(item => {
+            return filters.includes(item.name) || filters.includes(item.framework)
+        })
+    }
 }
